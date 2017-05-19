@@ -2,17 +2,19 @@ extends layout
 
 block body
   div(ng-controller='AppCtrl')
-
+ 
     h2 Big {{name}}
     ul.menu
       li
-          a(href='Home') Home
+        a(href='Home') Home
       li
         a(href='Quiz') Quiz
+        
       li
         a(href='Developer') Developer
 
     div(ng-view)
+  
 
     //- div
     //-   | Angular seed app: v
@@ -21,6 +23,10 @@ block body
   script(src='js/lib/angular/angular.js')
   script(src='js/app.js')
   script(src='js/services.js')
-  script(src='js/controllers.js')
   script(src='js/filters.js')
   script(src='js/directives.js')
+    
+  script(src='js/controllers/HomeController.js')
+  script(src='js/controllers/QuizController.js')
+  script(src='js/controllers/DeveloperController.js')
+    
