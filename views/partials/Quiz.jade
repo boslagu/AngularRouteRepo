@@ -1,1 +1,64 @@
-p This is partial for Quiz.
+html
+  body
+    .navBardemoBasicUsage
+      .container(layout='row', layout-xs='column')
+        div(flex='')
+          p.logo  Trivia Master Challenge 
+        div(flex='8')
+          md-button.md-fab.md-primary.md-hue-2(aria-label='Profile')
+            md-icon(md-svg-src='img/icons/ic_people_24px.svg')
+      md-content.md-padding
+        .text-content
+          md-card-content
+            div(ng-hide='contents')
+              div(layout='row', layout-align='space-between center')
+                span Select a Category
+                md-select.md-no-underline(ng-model='category', placeholder='Category')
+                  md-option(value='9') General Knowledge 
+                  md-option(value='10')  Entertainment: Books 
+                  md-option(value='11')  Entertainment: Film 
+                  md-option(value='12')  Entertainment: Music 
+                  md-option(value='13')  Entertainment: Musicals and Theatres 
+                  md-option(value='14')  Entertainment: Television 
+                  md-option(value='15')  Entertainment: Video Games 
+                  md-option(value='16')  Entertainment: Board Games 
+                  md-option(value='17')  Science and Nature 
+                  md-option(value='18')  Science: Computers 
+                  md-option(value='19')  Science: Mathematics 
+                  md-option(value='20')  Mythology 
+                  md-option(value='21')  Sports 
+                  md-option(value='22')  Geography 
+                  md-option(value='23')  History 
+                  md-option(value='24')  Politics 
+                  md-option(value='25')  Art 
+                  md-option(value='26')  Celebrities 
+                  md-option(value='27')  Animals 
+                  md-option(value='28')  Vehicles 
+                  md-option(value='29')  Entertainment: Comics 
+                  md-option(value='30')  Science: Gadgets 
+                  md-option(value='31')  Entertainment: Japanese Anime & Manga 
+                  md-option(value='32')  Entertainment: Cartoon & Animations 
+              md-button.md-primary.md-raised(ng-click='showAlert($event); hideContents()')
+                | Play
+            div(ng-show='open')
+              ul(ng-repeat='trivia in trivias | limitTo: 5')
+                div {{trivia.question}}
+                div
+                  md-button.md-raised(ng-click='rightAnswer()') {{trivia.correct_answer}}
+                div(ng-repeat='incorrect in trivia.incorrect_answers')
+                  div
+                    md-button.md-raised {{incorrect}}
+              md-button.md-primary.md-raised(ng-click='showScore()')
+                | End
+            div(ng-show='open1')
+              ul(ng-repeat='trivia in trivias | limitTo: -5')
+                div {{trivia.question}}
+                div
+                  md-button.md-raised(ng-click='rightAnswer()') {{trivia.correct_answer}}
+                div(ng-repeat='incorrect in trivia.incorrect_answers')
+                  div
+                    md-button.md-raised {{incorrect}}
+              md-button.md-primary.md-raised(ng-click='showScore()')
+                | End
+  footer
+    | Built by: Rommel Lagurin Monique Noche Hyacinth Briones
